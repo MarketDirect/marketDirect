@@ -8,7 +8,7 @@ var browserify = require('gulp-browserify');
 
 
 //Specify Dependencies
-gulp.task('default', ['html', 'css', 'js','images', 'vendor']);
+gulp.task('default', ['html', 'css', 'js','images', 'vendor','watch']);
 
 //html
 gulp.task('html', function(){

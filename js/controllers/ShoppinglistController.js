@@ -1,11 +1,8 @@
+
 module.exports = function (app) {
-    app.controller('ShoppinglisteController', ['$scope', '$http', '$location', 'loginService', function ($scope, $http, $location, loginService) {
+    app.controller('ShoppinglistController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
 
 
-        // $scope.login = function () {
-        //     console.log(`${$scope.name} in as we speak`);
-        //     loginService.userLogin($scope.name, $scope.password);
-        //     $location.path('/explore');
-        // };
+
     }]);
 }

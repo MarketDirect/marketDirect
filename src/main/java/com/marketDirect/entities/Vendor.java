@@ -40,7 +40,7 @@ public class Vendor {
     public Vendor() {
     }
 
-    public Vendor(String name, String fileName, String phone, String email, String website, String location, String date) {
+    public Vendor(String name, String fileName, String phone, String email, String website, String location, String date, User user) {
         this.name = name;
         this.fileName = fileName;
         this.phone = phone;
@@ -48,6 +48,7 @@ public class Vendor {
         this.website = website;
         this.location = location;
         this.date = date;
+        this.user = user;
     }
 
     public int getId() {
@@ -110,7 +111,17 @@ public class Vendor {
         return date;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public void setDate(String date) {
         this.date = date;
+
+
     }
 }

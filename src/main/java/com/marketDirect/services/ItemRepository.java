@@ -11,4 +11,5 @@ public interface ItemRepository extends CrudRepository<Item, Integer> {
     Iterable<Item> findByVendor(Vendor vendor);
     Iterable<Item> findByNameLike(String search);
     Iterable<Item> findByCategory(String category);
+    Item findByName(String name);
 }

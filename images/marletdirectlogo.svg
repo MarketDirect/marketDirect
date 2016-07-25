@@ -98,4 +98,20 @@
 <line fill="none" stroke="#69C28F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="25.1" y1="258.8" x2="543.1" y2="258.8"/>
 <path fill="none" stroke="#69C28F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
 	M351,114c0,0-14-30,10-53c0,0,31-26,35-51c0,0,17.5,32.2,3,74.6c-1.5,4.5-3.5,8.8-6.2,12.8c-9.3,13.8-22.4,19.1-36.8,21.7"/>
+<g>
+	<g>
+		<path fill="none" stroke="#69C28F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M637.1,294.4c36.1-27.1,62-57.4,68.5-94"/>
+		
+			<line fill="none" stroke="#69C28F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="635.7" y1="246.6" x2="636" y2="294.5"/>
+	</g>
+	<g>
+		
+			<line fill="#DFB999" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-miterlimit="10" x1="637.1" y1="304.5" x2="698" y2="386.8"/>
+		
+			<line fill="#DFB999" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-miterlimit="10" x1="635.2" y1="384" x2="636" y2="304.3"/>
+	</g>
+	<path fill="none" stroke="#69C28F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M661,265c0,0-14-30,10-53c0,0,31-26,35-51c0,0,17.5,32.2,3,74.6c-1.5,4.5-3.5,8.8-6.2,12.8c-9.3,13.8-22.4,19.1-36.8,21.7"/>
+</g>
 </svg>

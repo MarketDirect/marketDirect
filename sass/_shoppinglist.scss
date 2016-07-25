@@ -1,0 +1,22 @@
+.paperList{
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-image: url("/images/paper.svg");
+  width: 66%;
+  margin-left: 13%;
+  height: 633px;
+}
+.itemList{
+  position: relative;
+right: -23%;
+bottom: -28%;
+}
+.shoppingList{
+  font-family: 'Permanent Marker', cursive;
+  text-align: center;
+  /* margin-top: 46px; */
+  font-size: 71px;
+  position: relative;
+  bottom: -8%;
+  overflow: scroll;
+}

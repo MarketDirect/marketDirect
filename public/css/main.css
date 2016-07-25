@@ -52,9 +52,6 @@ p {
   display: inline-block;
   margin: auto; }
 
-.MainContainer {
-  background-color: #B1CFCD; }
-
 .has-form {
   position: absolute;
   top: 0;
@@ -72,3 +69,25 @@ p {
   position: relative;
   right: -127%;
   top: -15px; }
+
+.paperList {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-image: url("/images/paper.svg");
+  width: 66%;
+  margin-left: 13%;
+  height: 633px; }
+
+.itemList {
+  position: relative;
+  right: -23%;
+  bottom: -28%; }
+
+.shoppingList {
+  font-family: 'Permanent Marker', cursive;
+  text-align: center;
+  /* margin-top: 46px; */
+  font-size: 71px;
+  position: relative;
+  bottom: -8%;
+  overflow: scroll; }

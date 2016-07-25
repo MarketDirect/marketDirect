@@ -9,6 +9,7 @@ import com.marketDirect.services.VendorRepository;
 import com.marketDirect.utilities.PasswordStorage;
 import org.h2.tools.Server;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,18 +43,40 @@ public class MarketDirectController {
     ItemRepository items;
 
     @PostConstruct
-    public void init() throws SQLException {
+    public void init() throws SQLException, PasswordStorage.CannotPerformOperationException {
+
+        User testUser = new User("FarmerJohn", PasswordStorage.createHash("password1"), true);
+        if (users.findByUsername(testUser.getUsername()) == null) {
+            users.save(testUser);
+        }
+
+        Vendor testVendor = new Vendor("John's Store", "", "555-5555", "John@email.com", "www.johnsstore.com", "Charleston", "7/25/16", testUser);
+        if (vendors.findByName(testVendor.getName()) == null) {
+            vendors.save(testVendor);
+        }
+
+        Item testItem1 = new Item("Apples", "Red Delicious", "Produce", "", "$1.00 / lb", 100, testVendor);
+        Item testItem2 = new Item("Bananas", "Yellow", "Produce", "", "$5.00 / lb", 20, testVendor);
+        Item testItem3 = new Item("Strawberries", "Red", "Produce", "", "$2.50 / Bag", 50, testVendor);
+        if (items.findByName(testItem1.getName()) == null) {
+            items.save(testItem1);
+        }
+        if (items.findByName(testItem2.getName()) == null) {
+            items.save(testItem2);
+        }
+        if (items.findByName(testItem3.getName()) == null) {
+            items.save(testItem3);
+        }
         Server.createWebServer().start();
     }
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
-    public void login(HttpSession session, @RequestBody User user, HttpServletResponse response) throws Exception {
+    public void login(HttpSession session, @RequestBody User user) throws Exception {
         if (user.getUsername() == "" || user.getPassword() == ""){
             throw new Exception("name and password fields may not be blank");
         }
         User userFromDb = users.findByUsername(user.getUsername());
         if (userFromDb == null) {
-            response.sendRedirect("/#/login");
             throw new Exception("User does not exist. Please create account.");
 
         }
@@ -61,7 +84,6 @@ public class MarketDirectController {
             throw new Exception("Incorrect password");
         }
         session.setAttribute("username", user.getUsername());
-        response.sendRedirect("/#/explore");
     }
 
     @RequestMapping(path = "/create-user", method = RequestMethod.POST)
@@ -108,7 +130,7 @@ public class MarketDirectController {
         FileOutputStream fos = new FileOutputStream(uploadedFile);
         fos.write(file.getBytes());
 
-        Vendor vendor = new Vendor(name, uploadedFile.getName(), phone, email, website, location, date);
+        Vendor vendor = new Vendor(name, uploadedFile.getName(), phone, email, website, location, date, user);
         vendors.save(vendor);
     }
 
