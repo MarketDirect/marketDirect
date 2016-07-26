@@ -50,28 +50,28 @@ public class MarketDirectController {
     @PostConstruct
     public void init() throws SQLException, PasswordStorage.CannotPerformOperationException, FileNotFoundException {
 
-        User testUser = new User("FarmerJohn", PasswordStorage.createHash("password1"), true);
-        if (users.findByUsername(testUser.getUsername()) == null) {
-            users.save(testUser);
-        }
-
-        Vendor testVendor = new Vendor("John's Store", "", "555-5555", "John@email.com", "www.johnsstore.com", "Charleston", "7/25/16", testUser);
-        if (vendors.findByName(testVendor.getName()) == null) {
-            vendors.save(testVendor);
-        }
-
-        Item testItem1 = new Item("Apples", "Red Delicious", "Produce", "", "$1.00 / lb", 100, testVendor);
-        Item testItem2 = new Item("Bananas", "Yellow", "Produce", "", "$5.00 / lb", 20, testVendor);
-        Item testItem3 = new Item("Strawberries", "Red", "Produce", "", "$2.50 / Bag", 50, testVendor);
-        if (items.findByName(testItem1.getName()) == null) {
-            items.save(testItem1);
-        }
-        if (items.findByName(testItem2.getName()) == null) {
-            items.save(testItem2);
-        }
-        if (items.findByName(testItem3.getName()) == null) {
-            items.save(testItem3);
-        }
+//        User testUser = new User("FarmerJohn", PasswordStorage.createHash("password1"), true);
+//        if (users.findByUsername(testUser.getUsername()) == null) {
+//            users.save(testUser);
+//        }
+//
+//        Vendor testVendor = new Vendor("John's Store", "", "555-5555", "John@email.com", "www.johnsstore.com", "Charleston", "7/25/16", testUser);
+//        if (vendors.findByName(testVendor.getName()) == null) {
+//            vendors.save(testVendor);
+//        }
+//
+//        Item testItem1 = new Item("Apples", "Red Delicious", "Produce", "", "$1.00 / lb", 100, testVendor);
+//        Item testItem2 = new Item("Bananas", "Yellow", "Produce", "", "$5.00 / lb", 20, testVendor);
+//        Item testItem3 = new Item("Strawberries", "Red", "Produce", "", "$2.50 / Bag", 50, testVendor);
+//        if (items.findByName(testItem1.getName()) == null) {
+//            items.save(testItem1);
+//        }
+//        if (items.findByName(testItem2.getName()) == null) {
+//            items.save(testItem2);
+//        }
+//        if (items.findByName(testItem3.getName()) == null) {
+//            items.save(testItem3);
+//        }
         Server.createWebServer().start();
     }
 
@@ -140,7 +140,7 @@ public class MarketDirectController {
     }
 
     @RequestMapping(path = "/create-item", method = RequestMethod.POST)
-    public void createItem(HttpSession session, String category, MultipartFile file, String description, String price, int quantity) throws Exception {
+    public void createItem(HttpSession session, MultipartFile file, String name, String description, String category,  String price, int quantity) throws Exception {
         String username = (String) session.getAttribute("username");
         if (username == null) {
             throw new Exception("Not logged in!");
@@ -160,7 +160,7 @@ public class MarketDirectController {
 
         Vendor vendor = vendors.findByName(username);
 
-        Item item = new Item(username, description, category, uploadedFile.getName(), price, quantity, vendor);
+        Item item = new Item(name, description, category, uploadedFile.getName(), price, quantity, vendor);
         items.save(item);
     }
 
@@ -456,6 +456,7 @@ public class MarketDirectController {
             throw new Exception("User not in database!");
         }
         Comment c = new Comment(comment.getText(),comment.getRating(), user, vendor);
+        vendors.save(vendor);
         comments.save(c);
     }
 

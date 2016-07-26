@@ -49,6 +49,10 @@ app.config(['$routeProvider', function ($routeProvider) {
       controller: 'ShoppinglistController',
       templateUrl: 'templates/shoppinglist.html',
     })
+    .when('/newItem', {
+      controller: 'NewItemController',
+      templateUrl: 'templates/newItem.html'
+    })
 
 }])
 
@@ -83,11 +87,13 @@ require('./controllers/ProfileController.js')(app);
 require('./controllers/ProduceController.js')(app);
 require('./controllers/ArtController.js')(app);
 require('./controllers/MiscController.js')(app);
+require('./controller/NewItemController.js') (app);
 // require('./controllers/VideoController.js')(app);
 // services
 require('./services/login.js')(app);
 require('./services/newUser.js')(app);
 require('./services/shoppinglist.js')(app);
+require('./services/newItem.js')(app);
 
 
 

@@ -23,7 +23,7 @@ public class User {
     @Column(nullable = false)
     boolean isVendor;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "shopping_list", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "item_id"))
     List<Item> shoppingList;
 
