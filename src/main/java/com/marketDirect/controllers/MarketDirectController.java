@@ -48,55 +48,55 @@ public class MarketDirectController {
         if (users.findByUsername(testUser.getUsername()) == null) {
             users.save(testUser);
         }
-
-        User testUser2 = new User("FarmerClyde", PasswordStorage.createHash("password1"), true);
-        if (users.findByUsername(testUser2.getUsername()) == null) {
-            users.save(testUser2);
-        }
-
+//
+//        User testUser2 = new User("FarmerClyde", PasswordStorage.createHash("password1"), true);
+//        if (users.findByUsername(testUser2.getUsername()) == null) {
+//            users.save(testUser2);
+//        }
+//
         Vendor testVendor = new Vendor("John's Store", "", "555-5555", "John@email.com", "www.johnsstore.com", "Charleston", "7/25/16", testUser);
         if (vendors.findByName(testVendor.getName()) == null) {
             vendors.save(testVendor);
         }
-
-        Vendor testVendor2 = new Vendor("Clyde's Store", "", "555-5555", "Clyde@email.com", "www.clydesstore.com", "Charleston", "8/2/16", testUser2);
-        if (vendors.findByName(testVendor2.getName()) == null) {
-            vendors.save(testVendor2);
-        }
-
-        Item testItem1 = items.findByName("Apples");
-        Item testItem2 = items.findByName("Bananas");
-        Item testItem3 = items.findByName("Strawberries");
-        Item testItem4 = items.findByName("Tomatoes");
-        if (testItem1 == null) {
-            testItem1 = new Item("Apples", "Red Delicious", "Produce", "", "$1.00 / lb", 100, testVendor);
-            items.save(testItem1);
-        }
-        if (testItem2 == null) {
-            testItem2 = new Item("Bananas", "Yellow", "Produce", "", "$5.00 / lb", 20, testVendor);
-            items.save(testItem2);
-        }
-        if (testItem3 == null) {
-            testItem3 = new Item("Strawberries", "Red", "Produce", "", "$2.50 / Bag", 50, testVendor);
-            items.save(testItem3);
-        }
-        if (testItem4 == null) {
-            testItem4 = new Item("Tomatoes", "Creepy", "Produce", "", "$5.00 / ea", 60, testVendor2);
-            items.save(testItem4);
-        }
-
-        User testUser3 = users.findByUsername("ShopperBill");
-        if (testUser3 == null) {
-            testUser3 = new User("ShopperBill", PasswordStorage.createHash("password1"), false);
-            users.save(testUser3);
-
-            List<Item> shit = testUser3.getShoppingList();
-            shit.add(items.findOne(2));
-            shit.add(items.findOne(4));
-
-            testUser3.setShoppingList(shit);
-            users.save(testUser3);
-        }
+//
+//        Vendor testVendor2 = new Vendor("Clyde's Store", "", "555-5555", "Clyde@email.com", "www.clydesstore.com", "Charleston", "8/2/16", testUser2);
+//        if (vendors.findByName(testVendor2.getName()) == null) {
+//            vendors.save(testVendor2);
+//        }
+//
+//        Item testItem1 = items.findByName("Apples");
+//        Item testItem2 = items.findByName("Bananas");
+//        Item testItem3 = items.findByName("Strawberries");
+//        Item testItem4 = items.findByName("Tomatoes");
+//        if (testItem1 == null) {
+//            testItem1 = new Item("Apples", "Red Delicious", "Produce", "", "$1.00 / lb", 100, testVendor);
+//            items.save(testItem1);
+//        }
+//        if (testItem2 == null) {
+//            testItem2 = new Item("Bananas", "Yellow", "Produce", "", "$5.00 / lb", 20, testVendor);
+//            items.save(testItem2);
+//        }
+//        if (testItem3 == null) {
+//            testItem3 = new Item("Strawberries", "Red", "Produce", "", "$2.50 / Bag", 50, testVendor);
+//            items.save(testItem3);
+//        }
+//        if (testItem4 == null) {
+//            testItem4 = new Item("Tomatoes", "Creepy", "Produce", "", "$5.00 / ea", 60, testVendor2);
+//            items.save(testItem4);
+//        }
+//
+//        User testUser3 = users.findByUsername("ShopperBill");
+//        if (testUser3 == null) {
+//            testUser3 = new User("ShopperBill", PasswordStorage.createHash("password1"), false);
+//            users.save(testUser3);
+//
+//            List<Item> shit = testUser3.getShoppingList();
+//            shit.add(items.findOne(2));
+//            shit.add(items.findOne(4));
+//
+//            testUser3.setShoppingList(shit);
+//            users.save(testUser3);
+//        }
         Server.createWebServer("-webPort", "1337").start();
     }
 
@@ -588,6 +588,10 @@ public class MarketDirectController {
         sl.remove(i);
         user.setShoppingList(sl);
         users.save(user);
+        // /#/
+        // /#/
+        // /#/
+        // /#/
     }
 
     @RequestMapping(path = "/get-shopping-list", method = RequestMethod.GET)
