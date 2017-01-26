@@ -36,12 +36,16 @@
 </nav>
 <div class="shoppingContainer">
 
-
+<img src="/images/shoppinglistfont.png" alt="" />
 
 <ul class="list-group" ng-repeat = "ShopItem in ShopItems">
-  <li class="list-group-item">{{ShopItem.name}}</li>
-  <li class="list-group-item">{{ShopItem.price}}</li>
-  <li class="list-group-item">{{ShopItem.description}}</li>
+  <div class = "itemContainer">
+
+  <h1 class="">{{ShopItem.name}}</h1>
+  <h1 class="">{{ShopItem.price}}</h1>
+  <h1 class="">{{ShopItem.description}}</h1>
   <button ng-click="check(ShopItem)" type="button" class="btn btn-warning btn-circle"><i class="glyphicon glyphicon-remove"></i></button>
+  <a href="#" class="menu example5"><span></span></a>
 </ul>
+</div>
 </div>

@@ -337,11 +337,32 @@ ul.nav li.active a {
   overflow: scroll; }
 
 .shoppingContainer {
-  width: 100%;
-  height: 2000px; }
+  background-image: url("/images/paper.jpg");
+  width: 50%;
+  height: 2000px;
+  margin-left: 20%; }
 
 .list-group {
-  margin-top: 65px; }
+  margin-top: 65px;
+  color: white;
+  border: 2px solid white;
+  text-align: center; }
+
+.itemContainer {
+  width: 100%;
+  text-align: center; }
+
+.something {
+  display: inline-block;
+  width: 32%;
+  overflow: scroll; }
+
+#button {
+  background-color: white;
+  border-color: white; }
+
+#glyphicon {
+  color: black; }
 
 .addinventory {
   width: 40%;
@@ -477,7 +498,7 @@ footer {
   background-color: white; }
 
 .emptyContainer {
-  margin-bottom: 5%; }
+  margin-bottom: 10%; }
 
 #shopContainer {
   -webkit-animation: fadein 4s;
